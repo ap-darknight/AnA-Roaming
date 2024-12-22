@@ -1,0 +1,30 @@
+debug: true
+port: 7037
+
+log:
+  appLogFile: /opt/logs/ana_auth_app_logger.log
+
+mongoDB:
+  database: 'authentication'
+  master:
+    uri: 'mongodb+srv://{mongo-user-name}:{mongo-pswd}@ana-auth-cluster.7hvf1.mongodb.net/?retryWrites=true&w=majority&appName=AnA-Auth-Cluster'
+    username: 'ana-auth'
+    password: 'ana-%40uth'
+
+  slave:
+    uri: 'mongodb+srv://{mongo-user-name}:{mongo-pswd}@ana-auth-cluster.7hvf1.mongodb.net/?retryWrites=true&w=majority&appName=AnA-Auth-Cluster'
+    username: 'ana-auth'
+    password: 'ana-%40uth'
+
+authKeys:
+  jwtSecret:
+    encryptionKey: 'ana-auth'
+    tokenExpirationTime: 1
+  snowflake:
+    tokenExpirationTime: 1
+
+crypto:
+  aes-256:
+    encryptionKey: 'ana-auth'
+  chacha20:
+    encryptionKey: 'ana-auth'
